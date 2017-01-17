@@ -3,12 +3,12 @@ import java.lang.System;
 //import java.util.concurrent.TimeUnit;
 
 public class Pats_PID_Controller implements Runnable, PID_Controller{
-	public double p,i,d;
+	private double p,i,d;
 	private double setPoint;
 	private double accumulator = 0;
 	private double lastError;
-	public double loopTime;	//in milliseconds
-	public double error;
+	private double loopTime;	//in milliseconds
+	private double error;
 	private long lastRun = System.currentTimeMillis();
 	Thread t;
 	boolean running = false;
@@ -94,5 +94,12 @@ public class Pats_PID_Controller implements Runnable, PID_Controller{
 	}
 	public boolean isRunning() {
 		return this.running;
+	}
+	public double getError() {
+		return error;
+	}
+	@Override
+	public void setLoopTime(double loopTime) {
+		this.loopTime = loopTime;
 	}
 }

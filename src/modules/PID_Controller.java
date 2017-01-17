@@ -14,4 +14,6 @@ public interface PID_Controller {
 	public void setActuator(PID_Actuator actuator);
 	public boolean isRunning();
 	public double getSet();	//returns setpoint
+	public double getError();
+	public void setLoopTime(double loopTime);
 }
